@@ -17,7 +17,7 @@ st.set_page_config(
 def load_model_smart():
     model_path = 'apple_leaf_model.h5'
     # Sizning Google Drive ID raqamingiz (Code ichiga yozib qo'ydim)
-    file_id = '1-xbx4i7Q5Qpnu2kwFtYjj_ce5nydO9ge'
+    file_id = '1gpD-kjaczzbDBiqehShs2Yv-Vm8Fo_EV'
     url = f'https://drive.google.com/uc?id={file_id}'
 
     # 1. Funksiya: Faylni yuklab olish
