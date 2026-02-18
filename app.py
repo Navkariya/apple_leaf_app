@@ -7,8 +7,22 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
+import gdown
+
+@st.cache_resource
+def load_model_from_drive():
+    # Model fayli borligini tekshirish, bo'lmasa yuklab olish
+    if not os.path.exists('apple_leaf_model.h5'):
+        # Bu yerga o'z ID raqamingizni yozing
+        file_id = '1-xbx4i7Q5Qpnu2kwFtYjj_ce5nydO9ge'
+        url = f'https://drive.google.com/uc?id={file_id}'
+        gdown.download(url, 'apple_leaf_model.h5', quiet=False)
+    
+    model = tf.keras.models.load_model('apple_leaf_model.h5')
+    return model
+
 # Modelni yuklash
-model = tf.keras.models.load_model("apple_leaf_model.h5")
+model = load_model_from_drive()
 class_names = ["Healthy", "Rust", "Scab"]
 
 st.title("🍏 Apple Leaf Disease Classifier")
